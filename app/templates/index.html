@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Elimuhub Messaging — Upload Contacts</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; max-width: 800px; margin: auto; }
+    input, textarea { width: 100%; padding: 0.5rem; margin: .5rem 0; }
+    .box { border: 1px solid #ddd; padding: 1rem; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Elimuhub — Simple Automated Messaging</h1>
+  <p>Upload <code>contacts.csv</code> and the system will schedule emails/WhatsApp messages.</p>
+
+  <div class="box">
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+      <label>Select CSV file:</label>
+      <input type="file" name="contacts_file" accept=".csv" required>
+      <p>Default schedule (if contact has no preferred_time): <strong>{{ default_schedule }}</strong></p>
+      <button type="submit">Upload & Schedule</button>
+    </form>
+  </div>
+
+  <hr/>
+  <div class="box">
+    <h3>Preview Single Message</h3>
+    <form method="POST" action="/preview">
+      <label>Name</label><input name="name" placeholder="Recipient name">
+      <label>Email</label><input name="email" placeholder="recipient@example.com">
+      <label>WhatsApp</label><input name="whatsapp" placeholder="+2547xxxxxxxx">
+      <label>Message</label>
+      <textarea name="message" rows="4">Assalamu Alaikum NAME, You are invited to the Education Fair on SEPTEMBER 27.</textarea>
+      <button type="submit">Preview</button>
+    </form>
+  </div>
+  <hr/>
+  <p><a href="/logs" target="_blank">View Logs</a></p>
+</body>
+</html>
