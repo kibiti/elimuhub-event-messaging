@@ -77,12 +77,6 @@ elimuhub-event-messaging/
 ## How to push to GitHub
 
 ```sh
-mkdir elimuhub-event-messaging
-cd elimuhub-event-messaging
-# Add files (copy-paste from below)
-git init
-git add .
-git commit -m "Initial commit – automated messaging system"
 git remote add origin https://github.com/kibiti/elimuhub-event-messaging.git
 git branch -M main
 git push -u origin main
