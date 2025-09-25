@@ -7,7 +7,7 @@ def send_whatsapp_twilio(to: str, message: str):
     whatsapp_to = f"whatsapp:{to}"
     whatsapp_from = Config.TWILIO_WHATSAPP_FROM
     msg = client.messages.create(body=message, from_=whatsapp_from, to=whatsapp_to)
-    log_message(f"Twilio message sid: {msg.sid}", Config.LOG_PATH)
+    log_message(f"Twilio message sid: {msg.sid}")
     return msg.sid
 
 def send_whatsapp_ultramsg(to: str, message: str):
@@ -19,7 +19,7 @@ def send_whatsapp_ultramsg(to: str, message: str):
     url = f"https://api.ultramsg.com/{instance}/messages/chat"
     data = {"token": token, "to": to, "body": message}
     r = requests.post(url, data=data, timeout=20)
-    log_message(f"UltraMsg response: {r.text}", Config.LOG_PATH)
+    log_message(f"UltraMsg response: {r.text}")
     r.raise_for_status()
     return r.json()
 

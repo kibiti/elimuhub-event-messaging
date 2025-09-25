@@ -30,4 +30,4 @@ def send_email(to: str, subject: str, body: str, recipient_name: str = ""):
     server.sendmail(Config.FROM_EMAIL, to, msg.as_string())
     server.quit()
 
-    log_message(f"Email queued to {to}", Config.LOG_PATH)
+    log_message(f"Email queued to {to}")
